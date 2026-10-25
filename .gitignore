@@ -5,3 +5,10 @@ Thumbs.db
 
 # Log files
 *.log
+
+# Vercel
+.vercel
+
+# Node
+node_modules/
+package-lock.json

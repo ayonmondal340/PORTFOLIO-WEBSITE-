@@ -1,0 +1,23 @@
+{
+  "name": "ayon-mondal-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive MBA Marketing Student Portfolio for Ayon Mondal",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve .",
+    "build": "echo 'Static portfolio ready for deployment'"
+  },
+  "keywords": [
+    "portfolio",
+    "mba-marketing",
+    "consumer-psychology",
+    "data-analytics",
+    "brand-strategy",
+    "power-bi",
+    "vercel"
+  ],
+  "author": "Ayon Mondal",
+  "license": "MIT"
+}
