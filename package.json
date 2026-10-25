@@ -6,8 +6,7 @@
   "main": "index.html",
   "scripts": {
     "start": "npx serve .",
-    "dev": "npx serve .",
-    "build": "echo 'Static portfolio ready for deployment'"
+    "dev": "npx serve ."
   },
   "keywords": [
     "portfolio",
