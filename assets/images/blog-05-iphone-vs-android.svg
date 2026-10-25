@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="phoneBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e131f"/>
+      <stop offset="100%" stop-color="#07090f"/>
+    </linearGradient>
+    <linearGradient id="iosSilver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="androidGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3ddc84"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="appleBlueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.05"/>
+    </linearGradient>
+    <filter id="phoneGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#phoneBg)"/>
+
+  <!-- Left Silhouette: The iOS Identity Signal (Ecosystem & Status) -->
+  <g transform="translate(140, 70)">
+    <!-- Aura Glow -->
+    <rect x="0" y="0" width="180" height="300" rx="36" fill="url(#appleBlueGlow)" filter="url(#phoneGlow)"/>
+    <!-- Phone Bezel -->
+    <rect x="0" y="0" width="180" height="300" rx="36" fill="#1e293b" stroke="url(#iosSilver)" stroke-width="2.5"/>
+    <!-- Dynamic Island / Screen -->
+    <rect x="10" y="10" width="160" height="280" rx="28" fill="#090d16"/>
+    <rect x="62" y="18" width="56" height="14" rx="7" fill="#000000"/>
+    <circle cx="106" cy="25" r="3" fill="#1e293b"/>
+
+    <!-- Subtle Wallpaper Aesthetic Waves -->
+    <path d="M 10 180 C 50 140 110 240 170 190 L 170 290 L 10 290 Z" fill="#0284c7" fill-opacity="0.25"/>
+    <path d="M 10 220 C 60 190 120 270 170 230 L 170 290 L 10 290 Z" fill="#38bdf8" fill-opacity="0.2"/>
+
+    <!-- Emotional Value Badge -->
+    <text x="90" y="130" fill="#f8fafc" font-family="'Newsreader', serif" font-size="14" font-weight="600" text-anchor="middle">Status &amp; Social Proof</text>
+    <text x="90" y="150" fill="#94a3b8" font-family="'Hanken Grotesk', sans-serif" font-size="10" text-anchor="middle">Belonging · Blue Bubbles</text>
+    <text x="90" y="165" fill="#38bdf8" font-family="'Hanken Grotesk', sans-serif" font-size="10" font-weight="600" text-anchor="middle">Frictionless Lock-in</text>
+  </g>
+
+  <!-- VS Divider Element -->
+  <line x1="400" y1="80" x2="400" y2="340" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <circle cx="400" cy="210" r="16" fill="#0f172a" stroke="#475569" stroke-width="1.5"/>
+  <text x="400" y="215" fill="#94a3b8" font-family="'Hanken Grotesk', sans-serif" font-size="10" font-weight="800" text-anchor="middle">VS</text>
+
+  <!-- Right Silhouette: The Android Utility Paradox (Spec Supremacy vs Choice Paralysis) -->
+  <g transform="translate(480, 70)">
+    <!-- Phone Bezel -->
+    <rect x="0" y="0" width="180" height="300" rx="28" fill="#18221c" stroke="#3ddc84" stroke-opacity="0.6" stroke-width="2"/>
+    <!-- Screen -->
+    <rect x="10" y="10" width="160" height="280" rx="20" fill="#080e0a"/>
+    <!-- Punch-hole Camera -->
+    <circle cx="90" cy="24" r="5" fill="#000000"/>
+
+    <!-- Spec Telemetry Representation -->
+    <text x="90" y="115" fill="#e2e8f0" font-family="'Hanken Grotesk', sans-serif" font-size="12" font-weight="700" text-anchor="middle">Hardware Specification</text>
+    <rect x="25" y="130" width="130" height="20" rx="4" fill="#152e22"/>
+    <text x="90" y="144" fill="#3ddc84" font-family="'Hanken Grotesk', sans-serif" font-size="9" font-weight="600" text-anchor="middle">200MP · 120W Charge</text>
+    <rect x="25" y="158" width="130" height="20" rx="4" fill="#152e22"/>
+    <text x="90" y="172" fill="#86efac" font-family="'Hanken Grotesk', sans-serif" font-size="9" text-anchor="middle">Open Customization</text>
+
+    <text x="90" y="210" fill="#94a3b8" font-family="'Newsreader', serif" font-size="12" font-style="italic" text-anchor="middle">The Rational Choice Dilemma</text>
+    <text x="90" y="228" fill="#64748b" font-family="'Hanken Grotesk', sans-serif" font-size="9" text-anchor="middle">Why Specs Don’t Beat Halo</text>
+  </g>
+
+  <!-- Bottom Insight Banner -->
+  <rect x="260" y="380" width="280" height="28" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="400" y="398" fill="#f8fafc" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600" text-anchor="middle">SEPTEMBER 27, 2026 · CONSUMER PSYCHOLOGY</text>
+</svg>

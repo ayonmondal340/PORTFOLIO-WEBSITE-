@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pbiBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141824"/>
+      <stop offset="100%" stop-color="#0b0e17"/>
+    </linearGradient>
+    <linearGradient id="pbiYellow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F2C811"/>
+      <stop offset="100%" stop-color="#F8DE7E"/>
+    </linearGradient>
+    <linearGradient id="pbiBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3157D5" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#063CBC" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D2FF"/>
+      <stop offset="100%" stop-color="#3A7BD5"/>
+    </linearGradient>
+    <filter id="pbiGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#pbiBg)"/>
+  <rect width="800" height="450" fill="none" stroke="#252b3b" stroke-width="2"/>
+
+  <!-- Top Navigation Header inside Dashboard -->
+  <rect x="25" y="25" width="750" height="50" rx="8" fill="#1b2030" stroke="#2b3247" stroke-width="1"/>
+  <circle cx="50" cy="50" r="12" fill="#F2C811"/>
+  <path d="M46 44 h8 v12 h-8 z M49 41 h2 v3 h-2 z" fill="#141824"/>
+  <text x="75" y="55" fill="#FFFFFF" font-family="'Hanken Grotesk', -apple-system, sans-serif" font-size="15" font-weight="600" letter-spacing="0.5">E-Commerce Telemetry &amp; Executive Sales Overview</text>
+  <rect x="580" y="37" width="80" height="26" rx="13" fill="#262d42"/>
+  <text x="600" y="54" fill="#A0AEC0" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="500">Live DAX</text>
+  <circle cx="645" cy="50" r="3.5" fill="#10B981"/>
+  <rect x="670" y="37" width="90" height="26" rx="13" fill="#3157D5"/>
+  <text x="686" y="54" fill="#FFFFFF" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600">Power BI Pro</text>
+
+  <!-- KPI Cards -->
+  <!-- Card 1: Gross Sales -->
+  <g transform="translate(25, 90)">
+    <rect width="175" height="85" rx="8" fill="#1b2030" stroke="#2b3247" stroke-width="1"/>
+    <text x="16" y="26" fill="#8E9AA8" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Gross Sales (Q3)</text>
+    <text x="16" y="55" fill="#FFFFFF" font-family="'Hanken Grotesk', sans-serif" font-size="22" font-weight="700">$2,481,200</text>
+    <text x="16" y="73" fill="#10B981" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600">▲ +18.4% YoY</text>
+  </g>
+
+  <!-- Card 2: Conversion Rate -->
+  <g transform="translate(216, 90)">
+    <rect width="175" height="85" rx="8" fill="#1b2030" stroke="#2b3247" stroke-width="1"/>
+    <text x="16" y="26" fill="#8E9AA8" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">E-Com Conversion</text>
+    <text x="16" y="55" fill="#FFFFFF" font-family="'Hanken Grotesk', sans-serif" font-size="22" font-weight="700">3.84%</text>
+    <text x="16" y="73" fill="#10B981" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600">▲ +42 bps vs Target</text>
+  </g>
+
+  <!-- Card 3: Avg Order Value -->
+  <g transform="translate(407, 90)">
+    <rect width="175" height="85" rx="8" fill="#1b2030" stroke="#2b3247" stroke-width="1"/>
+    <text x="16" y="26" fill="#8E9AA8" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Average Order Val</text>
+    <text x="16" y="55" fill="#FFFFFF" font-family="'Hanken Grotesk', sans-serif" font-size="22" font-weight="700">$142.60</text>
+    <text x="16" y="73" fill="#3B82F6" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600">DAX: CALCULATE(AOV)</text>
+  </g>
+
+  <!-- Card 4: Repeat Customer % -->
+  <g transform="translate(598, 90)">
+    <rect width="177" height="85" rx="8" fill="#1b2030" stroke="#2b3247" stroke-width="1"/>
+    <text x="16" y="26" fill="#8E9AA8" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.5">Retention Index</text>
+    <text x="16" y="55" fill="#FFFFFF" font-family="'Hanken Grotesk', sans-serif" font-size="22" font-weight="700">46.2%</text>
+    <text x="16" y="73" fill="#F59E0B" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600">Cohort 3-Month Moat</text>
+  </g>
+
+  <!-- Main Chart Section: Revenue & Forecast Line Chart -->
+  <g transform="translate(25, 190)">
+    <rect width="490" height="235" rx="8" fill="#1b2030" stroke="#2b3247" stroke-width="1"/>
+    <text x="20" y="28" fill="#FFFFFF" font-family="'Hanken Grotesk', sans-serif" font-size="14" font-weight="600">Omnichannel Revenue Velocity &amp; Run-Rate</text>
+    <text x="20" y="46" fill="#8E9AA8" font-family="'Hanken Grotesk', sans-serif" font-size="11">Time-series forecasting powered by DAX rolling measures</text>
+
+    <!-- Grid lines -->
+    <line x1="20" y1="75" x2="470" y2="75" stroke="#273043" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="20" y1="120" x2="470" y2="120" stroke="#273043" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="20" y1="165" x2="470" y2="165" stroke="#273043" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="20" y1="205" x2="470" y2="205" stroke="#36415a" stroke-width="1"/>
+
+    <!-- Chart Area Fill -->
+    <path d="M 25 180 Q 75 160 120 170 T 210 130 T 300 110 T 380 90 T 465 65 L 465 205 L 25 205 Z" fill="url(#pbiBlue)"/>
+    <!-- Primary Line -->
+    <path d="M 25 180 Q 75 160 120 170 T 210 130 T 300 110 T 380 90 T 465 65" fill="none" stroke="#00D2FF" stroke-width="3"/>
+    <!-- Comparison Forecast Line -->
+    <path d="M 25 195 Q 85 185 140 180 T 240 160 T 330 145 T 410 135 T 465 110" fill="none" stroke="#F2C811" stroke-width="2" stroke-dasharray="5 4"/>
+
+    <!-- Active Plot Nodes -->
+    <circle cx="300" cy="110" r="5" fill="#00D2FF" stroke="#FFFFFF" stroke-width="2"/>
+    <circle cx="465" cy="65" r="5" fill="#00D2FF" stroke="#FFFFFF" stroke-width="2"/>
+
+    <!-- Axis Labels -->
+    <text x="25" y="222" fill="#8E9AA8" font-family="'Hanken Grotesk', sans-serif" font-size="10">Jan</text>
+    <text x="110" y="222" fill="#8E9AA8" font-family="'Hanken Grotesk', sans-serif" font-size="10">Apr</text>
+    <text x="210" y="222" fill="#8E9AA8" font-family="'Hanken Grotesk', sans-serif" font-size="10">Jul</text>
+    <text x="310" y="222" fill="#8E9AA8" font-family="'Hanken Grotesk', sans-serif" font-size="10">Oct</text>
+    <text x="445" y="222" fill="#8E9AA8" font-family="'Hanken Grotesk', sans-serif" font-size="10">Dec</text>
+  </g>
+
+  <!-- Secondary Section: Channel Attribution Donut -->
+  <g transform="translate(530, 190)">
+    <rect width="245" height="235" rx="8" fill="#1b2030" stroke="#2b3247" stroke-width="1"/>
+    <text x="18" y="28" fill="#FFFFFF" font-family="'Hanken Grotesk', sans-serif" font-size="14" font-weight="600">Channel Attribution</text>
+    <text x="18" y="46" fill="#8E9AA8" font-family="'Hanken Grotesk', sans-serif" font-size="11">Multi-touch ROAS share</text>
+
+    <!-- Donut Segments -->
+    <circle cx="122" cy="125" r="52" fill="none" stroke="#3157D5" stroke-width="20" stroke-dasharray="160 327" transform="rotate(-90 122 125)"/>
+    <circle cx="122" cy="125" r="52" fill="none" stroke="#00D2FF" stroke-width="20" stroke-dasharray="90 327" stroke-dashoffset="-160" transform="rotate(-90 122 125)"/>
+    <circle cx="122" cy="125" r="52" fill="none" stroke="#F2C811" stroke-width="20" stroke-dasharray="50 327" stroke-dashoffset="-250" transform="rotate(-90 122 125)"/>
+    <circle cx="122" cy="125" r="52" fill="none" stroke="#10B981" stroke-width="20" stroke-dasharray="27 327" stroke-dashoffset="-300" transform="rotate(-90 122 125)"/>
+
+    <text x="122" y="125" fill="#FFFFFF" font-family="'Hanken Grotesk', sans-serif" font-size="16" font-weight="700" text-anchor="middle">48%</text>
+    <text x="122" y="140" fill="#8E9AA8" font-family="'Hanken Grotesk', sans-serif" font-size="10" text-anchor="middle">Direct</text>
+
+    <!-- Legend -->
+    <rect x="20" y="195" width="8" height="8" rx="2" fill="#3157D5"/>
+    <text x="33" y="203" fill="#A0AEC0" font-family="'Hanken Grotesk', sans-serif" font-size="10">Direct (48%)</text>
+    <rect x="130" y="195" width="8" height="8" rx="2" fill="#00D2FF"/>
+    <text x="143" y="203" fill="#A0AEC0" font-family="'Hanken Grotesk', sans-serif" font-size="10">Paid Social (28%)</text>
+
+    <rect x="20" y="215" width="8" height="8" rx="2" fill="#F2C811"/>
+    <text x="33" y="223" fill="#A0AEC0" font-family="'Hanken Grotesk', sans-serif" font-size="10">Search (16%)</text>
+    <rect x="130" y="215" width="8" height="8" rx="2" fill="#10B981"/>
+    <text x="143" y="223" fill="#A0AEC0" font-family="'Hanken Grotesk', sans-serif" font-size="10">Affiliate (8%)</text>
+  </g>
+</svg>

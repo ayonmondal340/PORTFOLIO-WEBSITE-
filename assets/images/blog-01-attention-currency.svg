@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <radialGradient id="focusBeam" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FCD34D" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#F59E0B" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#B45309" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+    <filter id="glow1" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad1)"/>
+
+  <!-- Chaotic Digital Noise & Distraction Streams -->
+  <g stroke="#3b82f6" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="4 6">
+    <line x1="50" y1="60" x2="750" y2="60"/>
+    <line x1="30" y1="120" x2="770" y2="120"/>
+    <line x1="60" y1="180" x2="740" y2="180"/>
+    <line x1="40" y1="270" x2="760" y2="270"/>
+    <line x1="50" y1="330" x2="750" y2="330"/>
+    <line x1="30" y1="390" x2="770" y2="390"/>
+  </g>
+
+  <!-- Distraction Notification Particles -->
+  <g fill="#60a5fa" fill-opacity="0.3">
+    <circle cx="120" cy="80" r="14"/>
+    <circle cx="680" cy="90" r="18"/>
+    <circle cx="160" cy="340" r="16"/>
+    <circle cx="650" cy="360" r="12"/>
+    <rect x="220" y="50" width="70" height="20" rx="10"/>
+    <rect x="520" y="380" width="90" height="20" rx="10"/>
+  </g>
+
+  <!-- Central Focus Iris (The Attention Currency Beam) -->
+  <circle cx="400" cy="225" r="160" fill="url(#focusBeam)"/>
+  <circle cx="400" cy="225" r="95" fill="none" stroke="#FBBF24" stroke-width="2" filter="url(#glow1)"/>
+  <circle cx="400" cy="225" r="60" fill="none" stroke="#FDE68A" stroke-width="3"/>
+  <circle cx="400" cy="225" r="30" fill="#F59E0B" filter="url(#glow1)"/>
+  <circle cx="400" cy="225" r="14" fill="#FFFFFF"/>
+
+  <!-- Optical Aperture Blades -->
+  <g stroke="#FDE68A" stroke-width="1.5" stroke-opacity="0.8">
+    <line x1="400" y1="130" x2="440" y2="225"/>
+    <line x1="480" y1="180" x2="420" y2="260"/>
+    <line x1="470" y1="280" x2="380" y2="250"/>
+    <line x1="350" y1="310" x2="370" y2="210"/>
+    <line x1="320" y1="210" x2="410" y2="190"/>
+  </g>
+
+  <!-- Currency / Value Aura Accents -->
+  <text x="400" y="360" fill="#FDE68A" font-family="'Newsreader', serif" font-size="20" font-weight="600" text-anchor="middle" letter-spacing="1">Cognitive Scarcity in Algorithmic Noise</text>
+  <rect x="330" y="380" width="140" height="26" rx="13" fill="#1e293b" stroke="#F59E0B" stroke-width="1"/>
+  <text x="400" y="397" fill="#FBBF24" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600" text-anchor="middle">OCTOBER 11, 2026</text>
+</svg>

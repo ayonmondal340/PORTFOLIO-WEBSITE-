@@ -1,0 +1,633 @@
+/* ==========================================================================
+   Ayon Mondal - Cinematic Notebook Scroll Animation Styles
+   Integrates seamlessly with Tailwind CSS and Executive Editorial theme
+   ========================================================================== */
+
+:root {
+  --desk-bg: #8F8E89;
+  --paper-bg: #faf9f6;
+  --paper-surface: #faf9f6;
+  --text-primary: #1a1c1a;
+  --text-secondary: #5f5e5e;
+  --accent-blue: #063cbc;
+  --accent-container: #3157d5;
+  --radius-pill: 9999px;
+  --font-serif: "Newsreader", "Playfair Display", "Georgia", serif;
+  --font-sans: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   Preloader Screen
+   ========================================================================== */
+.preloader-container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #8F8E89;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader-container.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  border-top-color: #FFFFFF;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.preloader-meta {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.preloader-title {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  opacity: 0.9;
+}
+
+.preloader-progress-track {
+  width: 220px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin: 0 auto 0.4rem;
+}
+
+.preloader-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #FFFFFF;
+  border-radius: var(--radius-pill);
+  transition: width 0.2s ease;
+}
+
+.preloader-percentage {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   Hero Cinematic Pinned Section (500vh Scroll Track)
+   ========================================================================== */
+.hero-scroll-track {
+  position: relative;
+  width: 100%;
+  height: 500vh;
+  background-color: var(--desk-bg);
+}
+
+.canvas-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--desk-bg);
+}
+
+.notebook-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Stage 1: Initial State Overlay (Scroll 0% to 15%) */
+.hero-initial-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8rem 2rem 3.5rem;
+  text-align: center;
+  color: #FFFFFF;
+  pointer-events: auto;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.hero-initial-content {
+  max-width: 860px;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1.1rem;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.hero-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-main-title em {
+  font-style: italic;
+  color: #d8ddff;
+}
+
+.hero-tagline {
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 620px;
+  line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.hero-scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 2rem;
+}
+
+.mouse-pill {
+  width: 24px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-pill);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mouse-wheel {
+  width: 4px;
+  height: 8px;
+  background: #FFFFFF;
+  border-radius: var(--radius-pill);
+  animation: mouseScroll 1.6s ease-in-out infinite;
+}
+
+@keyframes mouseScroll {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+.scroll-prompt-text {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Stage 2: Page Turning Scrub Pill (Scroll 12% to 75%) */
+.hero-progress-pill {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translate(-50%, 15px);
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(26, 28, 26, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-pill);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+.pill-text {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.pill-progress-track {
+  width: 140px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.pill-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #3157d5;
+  border-radius: var(--radius-pill);
+  transition: width 0.1s linear;
+}
+
+/* Stage 3: In-Page Finale as Camera Zooms (Scroll 76% to 96%) */
+.hero-page-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  width: 90%;
+  max-width: 680px;
+  z-index: 20;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.in-page-badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-container);
+  margin-bottom: 0.75rem;
+}
+
+.in-page-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+}
+
+.in-page-desc {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 1.75rem;
+}
+
+/* Stage 4: Seamless Paper Transition Surface (Scroll 92% to 100%) */
+.paper-transition-surface {
+  position: absolute;
+  inset: 0;
+  background-color: var(--paper-bg);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 25;
+  transition: opacity 0.2s ease-out;
+}
+
+/* Tactile Sound Toggle inside Navbar */
+.btn-sound-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-sound-toggle:hover {
+  background: var(--paper-bg);
+  border-color: var(--accent-container);
+  color: var(--accent-container);
+}
+
+/* ==========================================================================
+   Transparent Navigation Bar & Interactive Nav Buttons
+   ========================================================================== */
+.main-navbar {
+  background: transparent !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: none !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-navbar.scrolled {
+  background: rgba(250, 249, 246, 0.8) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-btn:hover {
+  color: var(--text-primary);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav-btn.active {
+  background-color: var(--accent-container) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(49, 87, 213, 0.28);
+}
+
+.mobile-nav-link {
+  transition: all 0.2s ease;
+}
+
+.mobile-nav-link.active {
+  background-color: rgba(49, 87, 213, 0.1) !important;
+  color: var(--accent-container) !important;
+  font-weight: 600;
+}
+
+/* Floating Back to Top Button */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #11151c;
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: all var(--transition-fast);
+  z-index: 900;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  background: var(--accent-container);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   Custom Interactive Cursor & Click Ripple System
+   (Only activates after notebook scroll animation completes)
+   ========================================================================== */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.custom-cursor.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-container);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(49, 87, 213, 0.45);
+  background-color: rgba(49, 87, 213, 0.03);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              background-color 0.2s ease,
+              transform 0.1s linear;
+}
+
+/* Hover state on interactive elements */
+.custom-cursor.hovering .cursor-ring {
+  width: 52px;
+  height: 52px;
+  border-color: var(--accent-container);
+  background-color: rgba(49, 87, 213, 0.1);
+  box-shadow: 0 0 16px rgba(49, 87, 213, 0.2);
+}
+
+.custom-cursor.hovering .cursor-dot {
+  transform: translate(-50%, -50%) scale(1.4);
+  background-color: var(--accent-blue);
+}
+
+/* Click Ripple Marker Container */
+.cursor-ripple-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999998;
+  overflow: hidden;
+}
+
+.click-ripple {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-container);
+  background: radial-gradient(circle, rgba(49, 87, 213, 0.35) 0%, rgba(49, 87, 213, 0) 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1);
+  animation: rippleExpand 0.65s cubic-bezier(0.12, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes rippleExpand {
+  0% {
+    width: 10px;
+    height: 10px;
+    opacity: 0.95;
+    transform: translate(-50%, -50%) scale(1);
+    border-color: var(--accent-container);
+  }
+  60% {
+    opacity: 0.6;
+    border-color: #00d2ff;
+  }
+  100% {
+    width: 68px;
+    height: 68px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.2);
+    border-color: rgba(49, 87, 213, 0);
+  }
+}
+
+/* Hide custom cursor follower on mobile / touch-only devices */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Project Details Modal Dialog
+   ========================================================================== */
+.project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 21, 28, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.project-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.project-modal-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-modal-backdrop.active .project-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+/* Focus Visible Accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent-container) !important;
+  outline-offset: 3px !important;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .click-ripple {
+    display: none !important;
+  }
+}

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="coffeeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c140e"/>
+      <stop offset="100%" stop-color="#0b0805"/>
+    </linearGradient>
+    <linearGradient id="warmGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="greenSiren" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00704A"/>
+      <stop offset="100%" stop-color="#004e32"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#coffeeBg)"/>
+
+  <!-- Left: Minimalist Artisanal Cup & Steam -->
+  <g transform="translate(140, 90)">
+    <!-- Steam Curves -->
+    <path d="M 60 50 Q 50 20 65 0 Q 80 -20 70 -40" fill="none" stroke="#e5e7eb" stroke-opacity="0.3" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 90 50 Q 105 25 95 5 Q 85 -15 100 -35" fill="none" stroke="#e5e7eb" stroke-opacity="0.4" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 120 50 Q 110 20 125 -5 Q 135 -25 125 -45" fill="none" stroke="#e5e7eb" stroke-opacity="0.25" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Ceramic Cup Body -->
+    <path d="M 30 70 L 150 70 C 150 160 135 190 90 190 C 45 190 30 160 30 70 Z" fill="#2d2218" stroke="#4a3b2c" stroke-width="2"/>
+    <!-- Saucer -->
+    <ellipse cx="90" cy="195" rx="90" ry="14" fill="#201811" stroke="#4a3b2c" stroke-width="2"/>
+    <!-- Coffee Liquid Surface -->
+    <ellipse cx="90" cy="74" rx="55" ry="14" fill="#451a03"/>
+    <ellipse cx="90" cy="74" rx="42" ry="9" fill="#78350f"/>
+    <!-- Crema Heart Art -->
+    <path d="M 90 73 C 82 66 75 75 90 82 C 105 75 98 66 90 73 Z" fill="#fef3c7" fill-opacity="0.8"/>
+
+    <!-- Cup Handle -->
+    <path d="M 145 90 C 180 90 180 150 135 155" fill="none" stroke="#4a3b2c" stroke-width="12" stroke-linecap="round"/>
+    <path d="M 145 90 C 180 90 180 150 135 155" fill="none" stroke="#2d2218" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- Commodity Raw Bean vs Value Tag -->
+    <text x="90" y="240" fill="#a89a8d" font-family="'Hanken Grotesk', sans-serif" font-size="11" text-anchor="middle">Base Commodity: ~$0.08 of Beans</text>
+  </g>
+
+  <!-- Right: Value Decoupling Economics & Third Place Psychology -->
+  <g transform="translate(420, 80)">
+    <rect width="320" height="260" rx="8" fill="#18110b" stroke="#38291c" stroke-width="1"/>
+    <text x="25" y="35" fill="#f59e0b" font-family="'Hanken Grotesk', sans-serif" font-size="12" font-weight="700">PRICING PSYCHOLOGY DECONSTRUCTION</text>
+    <text x="25" y="58" fill="#FFFFFF" font-family="'Newsreader', serif" font-size="18" font-weight="600">The 60x Experience Premium</text>
+
+    <!-- Pricing Waterfall -->
+    <!-- Tier 1: Raw Coffee -->
+    <rect x="25" y="85" width="270" height="28" rx="4" fill="#2d1d12"/>
+    <text x="35" y="103" fill="#a89a8d" font-family="'Hanken Grotesk', sans-serif" font-size="10">Physical Commodity (Coffee + Cup)</text>
+    <text x="280" y="103" fill="#a89a8d" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600" text-anchor="end">$0.35</text>
+
+    <!-- Tier 2: Real Estate & Comfort -->
+    <rect x="25" y="120" width="270" height="28" rx="4" fill="#3d2719"/>
+    <text x="35" y="138" fill="#e5e7eb" font-family="'Hanken Grotesk', sans-serif" font-size="10">The “Third Place” (Wi-Fi, Seating, Music)</text>
+    <text x="280" y="138" fill="#e5e7eb" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600" text-anchor="end">$2.10</text>
+
+    <!-- Tier 3: Emotional Status Halo -->
+    <rect x="25" y="155" width="270" height="38" rx="4" fill="url(#greenSiren)" stroke="#10b981" stroke-width="1"/>
+    <text x="35" y="174" fill="#FFFFFF" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="700">Brand Identity &amp; Emotional Ritual</text>
+    <text x="35" y="188" fill="#a7f3d0" font-family="'Hanken Grotesk', sans-serif" font-size="9">Status signaling &amp; habitual comfort</text>
+    <text x="280" y="180" fill="#FFFFFF" font-family="'Hanken Grotesk', sans-serif" font-size="14" font-weight="800" text-anchor="end">$6.75</text>
+
+    <!-- Ratio Summary -->
+    <line x1="25" y1="210" x2="295" y2="210" stroke="#38291c" stroke-width="1"/>
+    <text x="25" y="235" fill="#f59e0b" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600">Lesson: You Don't Sell Coffee. You Sell Solace.</text>
+  </g>
+
+  <!-- Footer Tag -->
+  <rect x="300" y="380" width="200" height="28" rx="14" fill="#201811" stroke="#78350f" stroke-width="1"/>
+  <text x="400" y="398" fill="#fde68a" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="600" text-anchor="middle">SEPTEMBER 30, 2026</text>
+</svg>
