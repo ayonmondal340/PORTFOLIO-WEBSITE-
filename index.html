@@ -9,7 +9,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
 
   <!-- Tailwind CSS & Design System Config -->
@@ -201,22 +201,36 @@
       <!-- Dedicated High-Performance Frame Canvas -->
       <canvas class="notebook-canvas" id="notebookCanvas"></canvas>
 
-      <!-- Stage 1 Overlay: Closed Notebook Initial State (Scroll 0% - 15%) -->
+      <!-- Stage 1 Overlay: Editorial Title Card (Scroll 0% - 15%) -->
       <div class="hero-initial-overlay" id="heroInitialOverlay">
-        <div class="hero-initial-content">
-          <div class="hero-pill-tag">
-            <span class="w-2 h-2 rounded-full bg-primary-container inline-block"></span>
-            <span>MBA Marketing • Strategy • Analytics</span>
+        <div class="hero-editorial-card" id="heroEditorialCard">
+          <!-- Asymmetric Decorative Frame Segments (Matches Larana Group Reference) -->
+          <div class="editorial-frame-tl" aria-hidden="true"></div>
+          <div class="editorial-frame-br" aria-hidden="true"></div>
+          
+          <!-- Three Decorative Dots near lower-right -->
+          <div class="editorial-frame-dots" aria-hidden="true">
+            <span class="editorial-dot dot-1"></span>
+            <span class="editorial-dot dot-2"></span>
+            <span class="editorial-dot dot-3"></span>
           </div>
-          <h1 class="hero-main-title">
-            Where Marketing Meets <em>Creativity</em> &amp; Data.
-          </h1>
-          <p class="hero-tagline">
-            I explore how rigorous consumer insights, high-concept storytelling, and quantitative predictive modeling converge.
-          </p>
-          <p class="hero-subtitle">
-            Scroll down to open the notebook and experience the strategic framework.
-          </p>
+
+          <!-- Editorial Heading Content -->
+          <div class="editorial-content">
+            <div class="editorial-badge">
+              <span class="badge-dot"></span>
+              <span class="badge-text">Marketing Strategy &middot; Consumer Psychology &middot; Data Analytics</span>
+            </div>
+            
+            <h1 class="editorial-headline">
+              <span class="editorial-line line-1">Think creatively.</span>
+              <span class="editorial-line line-2">Explore intelligently.</span>
+            </h1>
+
+            <p class="editorial-subtitle">
+              AY0N7 &mdash; Where rigorous insights, high-concept storytelling, and quantitative predictive modeling converge.
+            </p>
+          </div>
         </div>
 
         <!-- Scroll Down Cue -->
@@ -224,7 +238,7 @@
           <div class="mouse-pill">
             <div class="mouse-wheel"></div>
           </div>
-          <span class="scroll-prompt-text">Scroll to open notebook</span>
+          <span class="scroll-prompt-text">Scroll to explore</span>
         </div>
       </div>
 

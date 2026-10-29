@@ -94,18 +94,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     onProgress: (progress, frame) => {
       updateHeroOverlays(progress, frame);
-      if (particleNetwork) {
-        if (progress >= 0.85) {
-          particleNetwork.activate();
-        } else if (progress < 0.75) {
-          particleNetwork.deactivate();
-        }
+      if (particleNetwork && !particleNetwork.isActive) {
+        particleNetwork.activate();
       }
     }
   });
 
   // Overlay choreography based on scroll progress
   function updateHeroOverlays(progress, frame) {
+    // Notebook Canvas Opacity: Transparent at progress 0, smoothly fades in from progress 0.03 to 0.12
+    const notebookCanvas = document.getElementById('notebookCanvas');
+    if (notebookCanvas) {
+      if (progress < 0.03) {
+        notebookCanvas.style.opacity = '0';
+      } else if (progress >= 0.03 && progress < 0.12) {
+        const fadeIn = (progress - 0.03) / 0.09;
+        notebookCanvas.style.opacity = Math.min(1, Math.max(0, fadeIn)).toFixed(3);
+      } else {
+        notebookCanvas.style.opacity = '1';
+      }
+    }
+
     // 1. Initial Hero Text Overlay (Scroll 0% to 15%)
     if (heroInitialOverlay) {
       if (progress < 0.15) {

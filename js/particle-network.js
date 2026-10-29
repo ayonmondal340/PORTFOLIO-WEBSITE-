@@ -68,8 +68,8 @@ class ParticleNetwork {
     // Initial render
     this.drawFrame();
 
-    // Start in deactivated/hidden state; activated only AFTER notebook scroll effect completes
-    this.deactivate();
+    // Start active immediately so it forms the dynamic backdrop for the opening editorial screen
+    this.activate();
   }
 
   activate() {
