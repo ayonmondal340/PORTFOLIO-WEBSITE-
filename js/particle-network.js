@@ -8,6 +8,7 @@
  * - Gentle mouse/touch interaction (repulsion & subtle elasticity).
  * - Adaptive node density scaled to viewport dimensions.
  * - Page Visibility API tab pause & prefers-reduced-motion accessibility support.
+ * - Dynamic activation/deactivation: Only runs AFTER the notebook scroll animation completes.
  */
 
 class ParticleNetwork {
@@ -31,6 +32,7 @@ class ParticleNetwork {
     this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.dpr = Math.min(window.devicePixelRatio || 1, 2);
     this.isRunning = false;
+    this.isActive = false;
     this.rafId = null;
 
     // State
@@ -66,10 +68,27 @@ class ParticleNetwork {
     // Initial render
     this.drawFrame();
 
-    // Start RAF loop only if motion is permitted
-    if (!this.prefersReducedMotion) {
+    // Start in deactivated/hidden state; activated only AFTER notebook scroll effect completes
+    this.deactivate();
+  }
+
+  activate() {
+    if (this.isActive) return;
+    this.isActive = true;
+    if (this.canvas) {
+      this.canvas.classList.add('active');
+    }
+    if (!this.prefersReducedMotion && !this.isRunning) {
       this.start();
     }
+  }
+
+  deactivate() {
+    this.isActive = false;
+    if (this.canvas) {
+      this.canvas.classList.remove('active');
+    }
+    this.stop();
   }
 
   resizeCanvas() {
@@ -98,7 +117,7 @@ class ParticleNetwork {
       }
     }
 
-    if (this.prefersReducedMotion) {
+    if (this.prefersReducedMotion || !this.isRunning) {
       this.drawFrame();
     }
   }
@@ -188,7 +207,7 @@ class ParticleNetwork {
     if (document.hidden) {
       this.stop();
     } else {
-      if (!this.prefersReducedMotion) {
+      if (this.isActive && !this.prefersReducedMotion) {
         this.start();
       }
     }

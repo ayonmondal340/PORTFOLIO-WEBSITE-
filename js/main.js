@@ -94,6 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     onProgress: (progress, frame) => {
       updateHeroOverlays(progress, frame);
+      if (particleNetwork) {
+        if (progress >= 0.85) {
+          particleNetwork.activate();
+        } else if (progress < 0.75) {
+          particleNetwork.deactivate();
+        }
+      }
     }
   });
 
@@ -370,6 +377,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Check custom cursor activation on scroll
     checkCursorActivation();
+
+    // Dynamic Particle Network: Activate only AFTER notebook scroll effect completes
+    if (particleNetwork && heroScrollTrack) {
+      const heroRect = heroScrollTrack.getBoundingClientRect();
+      const isPastNotebook = heroRect.bottom <= (window.innerHeight * 1.15);
+      if (isPastNotebook) {
+        particleNetwork.activate();
+      } else if (window.scrollY < 200) {
+        particleNetwork.deactivate();
+      }
+    }
 
     // Navbar background blur/border effect when scrolled past hero
     if (navbar) {
