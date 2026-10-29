@@ -12,6 +12,10 @@
 const POWER_BI_PROJECT_URL = null; // Set to live URL e.g. "https://app.powerbi.com/view?r=..." when available
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Prevent browser scroll position restore jumps across refreshes
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
   // Elements
   const preloader = document.getElementById('preloaderContainer');
   const preloaderBar = document.getElementById('preloaderBar');
@@ -65,6 +69,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Preloader safety timeout fallback: ensure preloader is removed within 1.2s max
+  let preloaderDismissed = false;
+  const dismissPreloader = () => {
+    if (preloaderDismissed) return;
+    preloaderDismissed = true;
+    if (preloader) {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        if (preloader) preloader.style.display = 'none';
+      }, 400);
+    }
+  };
+  const preloaderSafetyTimeout = setTimeout(dismissPreloader, 1200);
+
   // Initialize Notebook Scroller
   const scroller = new NotebookScroller({
     track: '#heroScrollTrack',
@@ -74,24 +92,22 @@ document.addEventListener('DOMContentLoaded', () => {
     lerpFactor: 0.16,
 
     onReady: () => {
-      // Frame 2 is rendered and ready
-      if (preloaderBar) preloaderBar.style.width = '20%';
-      if (preloaderPercent) preloaderPercent.textContent = '20%';
+      // Frame 2 is ready: dismiss preloader immediately so editorial card is visible
+      if (preloaderBar) preloaderBar.style.width = '100%';
+      if (preloaderPercent) preloaderPercent.textContent = '100%';
+      dismissPreloader();
+      clearTimeout(preloaderSafetyTimeout);
     },
 
     onLoadProgress: (pct) => {
       if (preloaderBar) preloaderBar.style.width = `${pct}%`;
       if (preloaderPercent) preloaderPercent.textContent = `${pct}%`;
 
-      if (pct >= 35 && preloader) {
-        // Once opening sequence + keyframes are cached, reveal smoothly
-        preloader.classList.add('fade-out');
-        setTimeout(() => {
-          if (preloader) preloader.style.display = 'none';
-        }, 500);
+      if (pct >= 20) {
+        dismissPreloader();
+        clearTimeout(preloaderSafetyTimeout);
       }
     },
-
     onProgress: (progress, frame) => {
       updateHeroOverlays(progress, frame);
       if (particleNetwork && !particleNetwork.isActive) {
@@ -99,6 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // Progressive enhancement: Immediately initialize overlays and opacities at scroll 0
+  updateHeroOverlays(0, 2);
 
   // Overlay choreography based on scroll progress
   function updateHeroOverlays(progress, frame) {
@@ -393,8 +412,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const isPastNotebook = heroRect.bottom <= (window.innerHeight * 1.15);
       if (isPastNotebook) {
         particleNetwork.activate();
-      } else if (window.scrollY < 200) {
-        particleNetwork.deactivate();
+      } else {
+        // Keep active so background particles continue drifting seamlessly
+        if (!particleNetwork.isActive) {
+          particleNetwork.activate();
+        }
       }
     }
 

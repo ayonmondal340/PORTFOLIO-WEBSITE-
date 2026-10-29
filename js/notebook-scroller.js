@@ -87,6 +87,9 @@ class NotebookScroller {
       this.onReady();
     }
 
+    // Synchronize scroll state immediately on initial load
+    this.handleScroll();
+
     // Step 2: Preload Tier 1 (Keyframes + initial opening frames 2-35)
     this.preloadTier1();
 
