@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Ayon Mondal | Where Marketing Meets Creativity &amp; Data</title>
-  <meta name="description" content="Portfolio of Ayon Mondal — MBA Marketing, Strategy, and Analytics. Triangulating consumer value through market architecture, creative campaigns, and predictive analytics.">
+  <title>AY0N7 | Where Marketing Meets Creativity &amp; Data</title>
+  <meta name="description" content="AY0N7 — Portfolio of Ayon Mondal. MBA Marketing, Strategy, and Analytics. Triangulating consumer value through market architecture, creative campaigns, and predictive analytics.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -123,6 +123,9 @@
 </head>
 <body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-full flex flex-col" style="background-color: rgb(252, 251, 249);">
 
+  <!-- Fixed Monochrome Particle Network Background Canvas (Part A) -->
+  <canvas id="particleNetworkCanvas" class="particle-network-canvas" aria-hidden="true"></canvas>
+
   <!-- Preloader Screen -->
   <div class="preloader-container" id="preloaderContainer">
     <div class="preloader-spinner"></div>
@@ -140,15 +143,17 @@
     <div class="h-20 max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-gutter">
       <div class="flex items-center gap-space-sm">
         <a class="flex items-center gap-space-sm group" href="#heroScrollTrack">
-          <span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-on-surface group-hover:text-primary transition-colors">Ayon Mondal</span>
+          <span class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface group-hover:text-primary transition-colors">AY0N7</span>
+          <span class="hidden sm:inline-block font-body-sm text-body-sm font-medium text-secondary">/ Ayon Mondal</span>
           <span class="hidden lg:inline-block font-label-caps text-label-caps uppercase px-space-xs py-0.5 bg-black/5 backdrop-blur-sm text-secondary rounded">MBA · Strategy · Analytics</span>
         </a>
       </div>
 
-      <!-- 4 Desktop Navigation Buttons -->
+      <!-- 5 Desktop Navigation Buttons (Including Internship Experience) -->
       <nav class="hidden md:flex items-center gap-1.5 p-1 rounded-full bg-white/40 backdrop-blur-md border border-black/5 shadow-[0_2px_12px_rgba(0,0,0,0.03)]" id="desktopNavLinks">
         <a class="nav-btn active px-4 py-1.5 rounded-full font-body-sm text-body-sm uppercase tracking-wider font-semibold transition-all" href="#heroScrollTrack" data-target="heroScrollTrack">Home</a>
         <a class="nav-btn px-4 py-1.5 rounded-full font-body-sm text-body-sm uppercase tracking-wider font-medium text-secondary hover:text-on-surface transition-all" href="#about-me" data-target="about-me">About Me</a>
+        <a class="nav-btn px-4 py-1.5 rounded-full font-body-sm text-body-sm uppercase tracking-wider font-medium text-secondary hover:text-on-surface transition-all" href="#experience" data-target="experience">Experience</a>
         <a class="nav-btn px-4 py-1.5 rounded-full font-body-sm text-body-sm uppercase tracking-wider font-medium text-secondary hover:text-on-surface transition-all" href="#selected-projects" data-target="selected-projects">Projects</a>
         <a class="nav-btn px-4 py-1.5 rounded-full font-body-sm text-body-sm uppercase tracking-wider font-medium text-secondary hover:text-on-surface transition-all" href="#editorial-insights" data-target="editorial-insights">Blogs</a>
       </nav>
@@ -178,11 +183,12 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer for 4 Navigation Buttons -->
+    <!-- Mobile Drawer for Navigation Buttons -->
     <div class="md:hidden hidden bg-surface-bright/95 backdrop-blur-xl border-b border-black/10 px-6 py-4 shadow-lg transition-all" id="mobileMenu">
       <div class="flex flex-col gap-2">
         <a class="mobile-nav-link active px-4 py-2.5 rounded-lg font-body-sm text-body-sm uppercase tracking-wider font-semibold text-primary bg-primary/10 transition-all" href="#heroScrollTrack" data-target="heroScrollTrack">Home</a>
         <a class="mobile-nav-link px-4 py-2.5 rounded-lg font-body-sm text-body-sm uppercase tracking-wider font-medium text-secondary hover:text-on-surface hover:bg-black/5 transition-all" href="#about-me" data-target="about-me">About Me</a>
+        <a class="mobile-nav-link px-4 py-2.5 rounded-lg font-body-sm text-body-sm uppercase tracking-wider font-medium text-secondary hover:text-on-surface hover:bg-black/5 transition-all" href="#experience" data-target="experience">Experience</a>
         <a class="mobile-nav-link px-4 py-2.5 rounded-lg font-body-sm text-body-sm uppercase tracking-wider font-medium text-secondary hover:text-on-surface hover:bg-black/5 transition-all" href="#selected-projects" data-target="selected-projects">Projects</a>
         <a class="mobile-nav-link px-4 py-2.5 rounded-lg font-body-sm text-body-sm uppercase tracking-wider font-medium text-secondary hover:text-on-surface hover:bg-black/5 transition-all" href="#editorial-insights" data-target="editorial-insights">Blogs</a>
       </div>
@@ -414,6 +420,140 @@
         </div>
       </section>
 
+      <!-- Section: Internship Experience (Part B) -->
+      <section class="w-full py-space-xl bg-surface-bright" id="experience" aria-label="Internship Experience">
+        <div class="max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
+          
+          <!-- Section Header -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="w-2 h-2 bg-primary-container"></span>
+                <span class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-semibold">Practical Industry Engagement</span>
+              </div>
+              <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg font-normal text-on-surface">
+                Internship Experience
+              </h2>
+              <p class="font-body-md text-body-md text-secondary max-w-xl mt-1">
+                Direct exposure to B2B market research, C-suite executive outreach, and enterprise sales pipeline qualification.
+              </p>
+            </div>
+            
+            <!-- Quick Credential Pill -->
+            <div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container rounded-full border border-surface-container-high">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span class="font-label-caps text-label-caps uppercase font-medium text-secondary">Verified Academic SIP Project</span>
+            </div>
+          </div>
+
+          <!-- Experience Card -->
+          <div class="experience-card p-space-lg md:p-space-xl bg-surface-container-lowest">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-gutter-desktop">
+              
+              <!-- Left Column: Role, Company, Period, & Certificate CTA -->
+              <div class="lg:col-span-4 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-surface-container pb-space-md lg:pb-0 lg:pr-space-lg">
+                <div>
+                  <div class="inline-flex items-center gap-2 px-2.5 py-1 bg-primary/10 text-primary font-label-caps text-label-caps uppercase tracking-wider font-semibold rounded mb-3">
+                    <span class="material-symbols-outlined text-[16px]">business</span>
+                    <span>On-Site Summer Internship</span>
+                  </div>
+                  
+                  <h3 class="font-headline-md text-headline-md font-semibold text-on-surface leading-tight">
+                    Market Research Analyst Intern
+                  </h3>
+                  
+                  <div class="mt-2 space-y-1">
+                    <p class="font-body-lg text-body-lg text-on-surface font-medium">
+                      Protean Data Services Pvt. Ltd. (PDSPL)
+                    </p>
+                    <p class="font-body-sm text-body-sm text-secondary flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-[16px]">location_on</span>
+                      <span>New Delhi, India</span>
+                    </p>
+                    <p class="font-body-sm text-body-sm text-secondary flex items-center gap-1.5 pt-1">
+                      <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                      <span>18 May 2026 – 7 August 2026</span>
+                    </p>
+                    <p class="font-body-sm text-body-sm text-secondary flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-[16px]">supervisor_account</span>
+                      <span>Industry Mentor: Mr. Anurag Singh</span>
+                    </p>
+                  </div>
+
+                  <!-- Client Accounts Callout -->
+                  <div class="mt-space-md p-3.5 bg-surface-container-low rounded-lg border border-surface-container">
+                    <span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary block mb-1.5">
+                      Client Accounts Supported
+                    </span>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span class="px-2.5 py-1 bg-surface-container-lowest text-on-surface font-body-sm text-xs font-semibold rounded shadow-xs border border-surface-container">
+                        Dassault Systèmes
+                      </span>
+                      <span class="px-2.5 py-1 bg-surface-container-lowest text-on-surface font-body-sm text-xs font-semibold rounded shadow-xs border border-surface-container">
+                        Cisco Systems
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Prominent View Certificate Button -->
+                <div class="pt-space-md">
+                  <a class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary-container text-on-primary rounded-xl font-label-caps text-label-caps uppercase tracking-wider font-semibold shadow-sm hover:bg-primary transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" href="https://drive.google.com/file/d/1V8lre2y9Rjb7P7SM2gcP0CeL3zvysAOU/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                    <span class="material-symbols-outlined text-[18px]">verified</span>
+                    <span>View Certificate</span>
+                    <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">open_in_new</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Column: Core Responsibilities & Quantified Outcomes -->
+              <div class="lg:col-span-8 flex flex-col justify-between pt-space-xs lg:pt-0">
+                <div>
+                  <h4 class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-semibold mb-space-sm">
+                    Core Responsibilities &amp; Research Focus
+                  </h4>
+
+                  <!-- 4 Truthful Bullet Points from SIP Report -->
+                  <ul class="space-y-3.5 font-body-md text-body-md text-secondary leading-relaxed">
+                    <li class="experience-bullet">
+                      <strong class="text-on-surface font-semibold">Stakeholder Mapping &amp; Digital Research:</strong> Conducted structured target company research and prospective client discovery using Apollo.io, Seamless.ai, and LinkedIn Sales Navigator to map decision-maker hierarchies (CEOs, Heads of Operations, Marketing Heads).
+                    </li>
+                    <li class="experience-bullet">
+                      <strong class="text-on-surface font-semibold">Executive Event Outreach (Dassault Systèmes):</strong> Led multi-touch B2B outreach and tailored pitching targeting C-suite leaders, successfully securing verified executive participation and high-level turnout for partner corporate events.
+                    </li>
+                    <li class="experience-bullet">
+                      <strong class="text-on-surface font-semibold">Enterprise Lead Generation (Cisco Systems):</strong> Executed outbound calling and email campaigns to qualify business opportunities, discovering and qualifying approximately <strong class="text-primary font-semibold">$200,000 USD</strong> in prospective enterprise sales pipeline.
+                    </li>
+                    <li class="experience-bullet">
+                      <strong class="text-on-surface font-semibold">Outreach Messaging Optimization:</strong> Formulated, tested, and iterated concise, value-oriented cold email scripts via Microsoft Outlook and targeted telephone communication tailored to time-constrained senior executives.
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Tools & Methodologies Tags -->
+                <div class="pt-space-md mt-space-sm border-t border-surface-container">
+                  <span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary block mb-2">
+                    Methodologies &amp; Execution Toolset
+                  </span>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="font-label-caps text-label-caps uppercase px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-md">LinkedIn Sales Navigator</span>
+                    <span class="font-label-caps text-label-caps uppercase px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-md">Apollo.io</span>
+                    <span class="font-label-caps text-label-caps uppercase px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-md">Seamless.ai</span>
+                    <span class="font-label-caps text-label-caps uppercase px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-md">Microsoft Outlook</span>
+                    <span class="font-label-caps text-label-caps uppercase px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-md">Executive Pitching</span>
+                    <span class="font-label-caps text-label-caps uppercase px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-md">B2B Lead Qualification</span>
+                    <span class="font-label-caps text-label-caps uppercase px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-md">Account-Based Outreach</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <!-- Section 3: Selected Work Showcase -->
       <section class="w-full py-space-xl bg-background" id="selected-projects">
         <div class="max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
@@ -547,7 +687,7 @@
                     </a>
                   </h3>
                   <p class="font-body-md text-body-md text-secondary leading-relaxed mb-space-md">
-                    A market research project exploring the plant-based beverage category through the lens of consumer behaviour and market understanding. Present it as a research-focused project that demonstrates my interest in understanding consumer preferences and market opportunities.
+                    A structured market research study exploring the plant-based beverage category through consumer behavior analysis, category perception mapping, and retail opportunity assessment. The research examines shift drivers toward alternative dairy beverages and identifies strategic positioning opportunities for emerging FMCG brands.
                   </p>
                   <div class="bg-surface-container-low p-space-sm rounded-lg mb-space-md">
                     <div class="flex flex-wrap gap-1.5">
@@ -586,30 +726,30 @@
             </div>
             <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-gutter mt-space-md lg:mt-0">
               <div class="p-space-md bg-white/5 rounded backdrop-blur-sm flex flex-col justify-between">
-                <span class="font-label-caps text-label-caps uppercase text-outline-variant">Customer Segmentation</span>
+                <span class="font-label-caps text-label-caps uppercase text-outline-variant">B2B Pipeline Sizing</span>
                 <div class="my-3">
-                  <span class="font-metric-display text-metric-display text-white font-semibold block">4.2x</span>
-                  <span class="font-body-sm text-body-sm text-surface-variant">LTV uplift achieved through psychographic cohort alignment</span>
-                </div>
-                <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                  <div class="h-full bg-primary-fixed w-3/4"></div>
-                </div>
-              </div>
-              <div class="p-space-md bg-white/5 rounded backdrop-blur-sm flex flex-col justify-between">
-                <span class="font-label-caps text-label-caps uppercase text-outline-variant">Research Velocity</span>
-                <div class="my-3">
-                  <span class="font-metric-display text-metric-display text-white font-semibold block">300+</span>
-                  <span class="font-body-sm text-body-sm text-surface-variant">Consumer sentiment points mapped across plant-based studies</span>
+                  <span class="font-metric-display text-metric-display text-white font-semibold block">~$200K</span>
+                  <span class="font-body-sm text-body-sm text-surface-variant">USD in qualified enterprise sales opportunities identified during Cisco Systems campaign</span>
                 </div>
                 <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
                   <div class="h-full bg-primary-fixed w-4/5"></div>
                 </div>
               </div>
               <div class="p-space-md bg-white/5 rounded backdrop-blur-sm flex flex-col justify-between">
-                <span class="font-label-caps text-label-caps uppercase text-outline-variant">Framework Adherence</span>
+                <span class="font-label-caps text-label-caps uppercase text-outline-variant">Executive Outreach</span>
+                <div class="my-3">
+                  <span class="font-metric-display text-metric-display text-white font-semibold block">C-Suite</span>
+                  <span class="font-body-sm text-body-sm text-surface-variant">Direct stakeholder mapping &amp; confirmed participation for Dassault Systèmes events</span>
+                </div>
+                <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-primary-fixed w-3/4"></div>
+                </div>
+              </div>
+              <div class="p-space-md bg-white/5 rounded backdrop-blur-sm flex flex-col justify-between">
+                <span class="font-label-caps text-label-caps uppercase text-outline-variant">Empirical Methodology</span>
                 <div class="my-3">
                   <span class="font-metric-display text-metric-display text-white font-semibold block">100%</span>
-                  <span class="font-body-sm text-body-sm text-surface-variant">Decisions rooted in verifiable consumer feedback loops</span>
+                  <span class="font-body-sm text-body-sm text-surface-variant">Campaign planning and consumer strategy rooted in structured research and verified feedback</span>
                 </div>
                 <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
                   <div class="h-full bg-primary-fixed w-full"></div>
@@ -648,7 +788,7 @@
             <!-- BLOG 01: Pay Attention, As It's the New Currency -->
             <article class="bg-surface-container-lowest flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden rounded-xl border border-surface-container">
               <div>
-                <a href="https://ay0n7.wordpress.com/2026/10/11/pay-attention-as-the-new-currency/" target="_blank" rel="noopener noreferrer" class="block relative w-full h-52 bg-surface-container-high overflow-hidden" title="Read 'Pay Attention, As It's the New Currency' on WordPress">
+                <a href="https://ay0n7.wordpress.com/2026/10/11/pay-attention-as-its-the-new-currency/" target="_blank" rel="noopener noreferrer" class="block relative w-full h-52 bg-surface-container-high overflow-hidden" title="Read 'Pay Attention, As It's the New Currency' on WordPress">
                   <img src="assets/images/blog-01-attention-currency.svg" alt="Pay Attention, As It's the New Currency Editorial Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy">
                   <div class="absolute top-3 left-3">
                     <span class="px-2.5 py-1 bg-surface-bright/95 backdrop-blur-sm text-on-surface font-label-caps text-label-caps uppercase tracking-wider font-semibold shadow-sm rounded">
@@ -663,7 +803,7 @@
                     <span>October 11, 2026</span>
                   </div>
                   <h3 class="font-headline-md text-headline-md text-on-surface font-normal group-hover:text-primary transition-colors leading-snug mb-space-xs">
-                    <a href="https://ay0n7.wordpress.com/2026/10/11/pay-attention-as-the-new-currency/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://ay0n7.wordpress.com/2026/10/11/pay-attention-as-its-the-new-currency/" target="_blank" rel="noopener noreferrer">
                       Pay Attention, As It's the New Currency
                     </a>
                   </h3>
@@ -675,7 +815,7 @@
 
               <div class="px-space-lg pb-space-lg pt-space-xs flex items-center justify-between border-t border-surface-container">
                 <span class="font-body-sm text-body-sm text-secondary">Ayon Mondal • 5 min read</span>
-                <a class="inline-flex items-center gap-1 font-label-caps text-label-caps uppercase text-primary font-semibold hover:text-on-surface transition-colors" href="https://ay0n7.wordpress.com/2026/10/11/pay-attention-as-the-new-currency/" target="_blank" rel="noopener noreferrer">
+                <a class="inline-flex items-center gap-1 font-label-caps text-label-caps uppercase text-primary font-semibold hover:text-on-surface transition-colors" href="https://ay0n7.wordpress.com/2026/10/11/pay-attention-as-its-the-new-currency/" target="_blank" rel="noopener noreferrer">
                   <span>Read Article</span>
                   <span class="material-symbols-outlined text-[16px]">north_east</span>
                 </a>
@@ -919,6 +1059,7 @@
           <ul class="flex flex-col gap-space-xs">
             <li class="pt-space-xs"><a class="font-body-md text-body-md text-white/80 hover:text-white transition-colors" href="#heroScrollTrack">Home (Notebook)</a></li>
             <li><a class="font-body-md text-body-md text-white/80 hover:text-white transition-colors" href="#about-me">About Me</a></li>
+            <li><a class="font-body-md text-body-md text-white/80 hover:text-white transition-colors" href="#experience">Internship Experience</a></li>
             <li><a class="font-body-md text-body-md text-white/80 hover:text-white transition-colors" href="#selected-projects">Projects (All 3)</a></li>
             <li><a class="font-body-md text-body-md text-white/80 hover:text-white transition-colors" href="#editorial-insights">Blogs &amp; Essays (All 5)</a></li>
           </ul>
@@ -1018,6 +1159,7 @@
   </button>
 
   <!-- Scripts -->
+  <script src="js/particle-network.js"></script>
   <script src="js/notebook-scroller.js"></script>
   <script src="js/main.js"></script>
 </body>

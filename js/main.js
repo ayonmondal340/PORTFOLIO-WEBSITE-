@@ -53,6 +53,18 @@ document.addEventListener('DOMContentLoaded', () => {
   let isHovering = false;
   let isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 
+  // Initialize Interactive Monochrome Particle Network Background
+  let particleNetwork = null;
+  if (typeof ParticleNetwork !== 'undefined') {
+    particleNetwork = new ParticleNetwork({
+      canvas: '#particleNetworkCanvas',
+      baseColor: '20, 20, 20',
+      maxDistance: 135,
+      mouseRadius: 140,
+      repelForce: 0.6
+    });
+  }
+
   // Initialize Notebook Scroller
   const scroller = new NotebookScroller({
     track: '#heroScrollTrack',
@@ -344,10 +356,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Active Navigation State Tracking for the 4 Sections
+  // Active Navigation State Tracking for the 5 Sections
   const navSections = [
     { id: 'heroScrollTrack', elem: document.getElementById('heroScrollTrack') },
     { id: 'about-me', elem: document.getElementById('about-me') },
+    { id: 'experience', elem: document.getElementById('experience') },
     { id: 'selected-projects', elem: document.getElementById('selected-projects') },
     { id: 'editorial-insights', elem: document.getElementById('editorial-insights') }
   ];

@@ -619,6 +619,74 @@ input:focus-visible {
   outline-offset: 3px !important;
 }
 
+/* ==========================================================================
+   Monochrome Particle Network Canvas Integration
+   ========================================================================== */
+.particle-network-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* Ensure content layer is above particle canvas */
+.site-content-layer,
+#about-me,
+#experience,
+#selected-projects,
+#editorial-insights,
+#collaboration {
+  position: relative;
+  z-index: 1;
+}
+
+/* Semi-transparent section backdrops so particle network shows in negative space */
+#about-me,
+#experience,
+#selected-projects,
+#editorial-insights,
+#collaboration {
+  background-color: rgba(250, 249, 246, 0.88) !important;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* Experience Section Visual Enhancements */
+.experience-card {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.experience-bullet {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.experience-bullet::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-container);
+  box-shadow: 0 0 0 3px rgba(49, 87, 213, 0.15);
+}
+
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   * {
