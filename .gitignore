@@ -6,8 +6,10 @@ Thumbs.db
 # Log files
 *.log
 
-# Vercel
-.vercel
+# Local scripts
+serve.ps1
+server.ps1
+start-server.bat
 
 # Node
 node_modules/

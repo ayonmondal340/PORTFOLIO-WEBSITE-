@@ -191,45 +191,43 @@ class NotebookScroller {
   }
 
   /**
-   * Concurrency-controlled batch loader
+   * Concurrency-controlled batch loader using async worker pool
    */
-  async loadBatch(indices, concurrency = 4) {
-    const pool = [];
-    for (const idx of indices) {
-      const p = this.preloadSingleFrame(idx);
-      pool.push(p);
-      if (pool.length >= concurrency) {
-        await Promise.race(pool);
-        for (let j = pool.length - 1; j >= 0; j--) {
-          if (this.cache.has(indices[j])) {
-            pool.splice(j, 1);
-          }
-        }
+  async loadBatch(indices, concurrency = 6) {
+    const queue = [...indices];
+    const workers = Array.from({ length: Math.min(concurrency, queue.length) }, async () => {
+      while (queue.length > 0) {
+        const idx = queue.shift();
+        try {
+          await this.preloadSingleFrame(idx);
+        } catch (e) {}
       }
-    }
-    await Promise.all(pool);
+    });
+    await Promise.all(workers);
   }
 
   /**
    * Resilient Nearest Frame Search: Canvas NEVER flickers or shows empty
+   * Always finds the absolute closest loaded frame to the target index
    */
   getNearestLoadedFrame(targetIdx) {
     if (this.cache.has(targetIdx)) {
       return this.cache.get(targetIdx);
     }
 
-    for (let delta = 1; delta <= 30; delta++) {
-      const down = targetIdx - delta;
-      if (down >= this.startFrame && this.cache.has(down)) {
-        return this.cache.get(down);
-      }
-      const up = targetIdx + delta;
-      if (up <= this.endFrame && this.cache.has(up)) {
-        return this.cache.get(up);
+    let closestFrame = this.startFrame;
+    let minDistance = Infinity;
+    for (const [loadedIdx, img] of this.cache.entries()) {
+      if (img && img.naturalWidth) {
+        const dist = Math.abs(loadedIdx - targetIdx);
+        if (dist < minDistance) {
+          minDistance = dist;
+          closestFrame = loadedIdx;
+        }
       }
     }
 
-    return this.cache.get(this.startFrame) || null;
+    return this.cache.get(closestFrame) || null;
   }
 
   handleScroll() {
@@ -251,12 +249,11 @@ class NotebookScroller {
       this.currentProgress = this.targetProgress;
       this.currentFrame = this.targetFrame;
       this.renderFrame(Math.round(this.currentFrame));
+      if (this.onProgress) {
+        this.onProgress(this.currentProgress, Math.round(this.currentFrame));
+      }
     } else {
       this.startRaf();
-    }
-
-    if (this.onProgress) {
-      this.onProgress(this.targetProgress, Math.round(this.targetFrame));
     }
   }
 
@@ -308,6 +305,10 @@ class NotebookScroller {
         }
       }
 
+      if (this.onProgress) {
+        this.onProgress(this.currentProgress, frameToRender);
+      }
+
       this.rafId = requestAnimationFrame(this.tick);
     } else {
       this.currentFrame = this.targetFrame;
@@ -315,6 +316,9 @@ class NotebookScroller {
       const finalFrame = Math.round(this.currentFrame);
       if (finalFrame !== this.lastRenderedFrame) {
         this.renderFrame(finalFrame);
+      }
+      if (this.onProgress) {
+        this.onProgress(this.currentProgress, finalFrame);
       }
       this.isTicking = false;
       this.rafId = null;

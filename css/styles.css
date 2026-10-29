@@ -18,19 +18,19 @@
 }
 
 /* ==========================================================================
-   Global Overflow Fix (Problem 3: Prevents horizontal scrollbar)
+   Global Overflow Fix (Prevents horizontal scrollbar without breaking sticky)
    ========================================================================== */
 html {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   background-color: #faf9f6;
 }
 
 body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
   background-color: #faf9f6;
 }
@@ -112,15 +112,21 @@ body {
 }
 
 /* ==========================================================================
-   Hero Cinematic Pinned Section (500vh Scroll Track)
+   Hero Cinematic Pinned Section (Scroll-Driven 3D Notebook Experience)
    ========================================================================== */
 .hero-scroll-track {
   position: relative;
   width: 100%;
   max-width: 100%;
-  height: 500vh;
+  height: 340vh;
   background-color: transparent !important;
   z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .hero-scroll-track {
+    height: 280vh;
+  }
 }
 
 .canvas-sticky-wrapper {
@@ -128,12 +134,12 @@ body {
   position: sticky;
   top: 0;
   left: 0;
-  width: 100%; /* Fix Problem 3: Changed 100vw to 100% to prevent horizontal scrollbar */
+  width: 100%;
   max-width: 100%;
   height: 100vh;
-  height: 100dvh; /* Modern viewport support */
+  height: 100dvh;
   overflow: hidden;
-  background-color: transparent !important; /* Fix Problem 2: Eliminate gray dimmed tint */
+  background-color: transparent;
 }
 
 .notebook-canvas {
@@ -144,12 +150,12 @@ body {
   height: 100%;
   display: block;
   z-index: 1;
-  opacity: 0; /* Fix Problem 2: Fully transparent on load so clean white particle network shows */
+  opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease-out;
 }
 
-/* Stage 1: Initial State Overlay (Scroll 0% to 15%) */
+/* Stage 1: Initial State Overlay (Scroll 0% to 12%) */
 .hero-initial-overlay {
   position: absolute;
   top: 0;
@@ -166,12 +172,13 @@ body {
   text-align: center;
   color: #11151c;
   pointer-events: auto;
-  opacity: 1 !important; /* Fix Problem 1: Explicitly visible by default for progressive enhancement */
-  visibility: visible !important;
-  z-index: 5; /* Fix Problem 1: Sit cleanly above notebookCanvas (z-index: 1) in Edge and Chrome */
-  transform: translateZ(0); /* Create dedicated hardware compositing layer for Edge */
+  opacity: 1;
+  visibility: visible;
+  z-index: 5;
+  transform: translateZ(0);
   -webkit-transform: translateZ(0);
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 /* ==========================================================================

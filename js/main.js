@@ -118,16 +118,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Progressive enhancement: Immediately initialize overlays and opacities at scroll 0
   updateHeroOverlays(0, 2);
+  const urlParams = new URLSearchParams(window.location.search);
+  const targetScrollY = parseInt(urlParams.get('scroll'), 10);
+  if (!isNaN(targetScrollY) && targetScrollY > 0) {
+    window.scrollTo(0, targetScrollY);
+    scroller.handleScroll();
+  }
 
   // Overlay choreography based on scroll progress
   function updateHeroOverlays(progress, frame) {
-    // Notebook Canvas Opacity: Transparent at progress 0, smoothly fades in from progress 0.03 to 0.12
+    // Notebook Canvas Opacity: Transparent at progress 0, smoothly fades in from progress 0.02 to 0.10
     const notebookCanvas = document.getElementById('notebookCanvas');
     if (notebookCanvas) {
-      if (progress < 0.03) {
+      if (progress < 0.02) {
         notebookCanvas.style.opacity = '0';
-      } else if (progress >= 0.03 && progress < 0.12) {
-        const fadeIn = (progress - 0.03) / 0.09;
+      } else if (progress >= 0.02 && progress < 0.10) {
+        const fadeIn = (progress - 0.02) / 0.08;
         notebookCanvas.style.opacity = Math.min(1, Math.max(0, fadeIn)).toFixed(3);
       } else {
         notebookCanvas.style.opacity = '1';
@@ -136,14 +142,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Initial Hero Text Overlay (Scroll 0% to 15%)
     if (heroInitialOverlay) {
-      if (progress < 0.15) {
-        const fade = 1 - (progress / 0.15);
-        const translateY = -progress * 150;
-        const scale = 1 - (progress * 0.05);
+      if (progress < 0.12) {
+        const fade = Math.max(0, 1 - (progress / 0.10));
+        const translateY = -progress * 160;
+        const scale = 1 - (progress * 0.04);
         heroInitialOverlay.style.opacity = fade.toFixed(3);
         heroInitialOverlay.style.transform = `translateY(${translateY.toFixed(1)}px) scale(${scale.toFixed(3)})`;
-        heroInitialOverlay.style.pointerEvents = progress > 0.05 ? 'none' : 'auto';
-        heroInitialOverlay.style.visibility = 'visible';
+        heroInitialOverlay.style.pointerEvents = progress > 0.03 ? 'none' : 'auto';
+        heroInitialOverlay.style.visibility = fade <= 0.01 ? 'hidden' : 'visible';
       } else {
         heroInitialOverlay.style.opacity = '0';
         heroInitialOverlay.style.pointerEvents = 'none';
