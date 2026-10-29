@@ -897,8 +897,11 @@ input:focus-visible {
 #about-me,
 #experience,
 #selected-projects,
+#statistical-synthesis-strip,
 #editorial-insights,
-#collaboration {
+#collaboration,
+#site-footer,
+footer {
   position: relative;
   z-index: 1;
 }
@@ -957,4 +960,56 @@ input:focus-visible {
   .click-ripple {
     display: none !important;
   }
+}
+
+/* ==========================================================================
+   Executive Statistical Synthesis Strip (High-Contrast Dark Banner)
+   ========================================================================== */
+.statistical-synthesis-strip,
+#statistical-synthesis-strip,
+.bg-inverse-surface,
+section.bg-inverse-surface {
+  background-color: #11151c !important;
+  color: #f2f1ee !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.statistical-synthesis-strip .synthesis-card,
+.statistical-synthesis-strip .bg-white\/5,
+#statistical-synthesis-strip .bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 0.5rem;
+}
+
+.statistical-synthesis-strip .text-white,
+#statistical-synthesis-strip .text-white {
+  color: #ffffff !important;
+}
+
+.statistical-synthesis-strip .text-surface-variant,
+#statistical-synthesis-strip .text-surface-variant {
+  color: #e3e2df !important;
+}
+
+.statistical-synthesis-strip .text-outline-variant,
+#statistical-synthesis-strip .text-outline-variant {
+  color: #c4c5d6 !important;
+}
+
+.statistical-synthesis-strip .text-primary-fixed,
+#statistical-synthesis-strip .text-primary-fixed {
+  color: #dde1ff !important;
+}
+
+/* Footer Section Guaranteed Solid Executive Theme */
+footer,
+footer.w-full,
+#site-footer {
+  background-color: #11151c !important;
+  color: #f2f1ee !important;
+  position: relative !important;
+  z-index: 2 !important;
 }
