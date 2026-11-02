@@ -397,6 +397,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ==========================================================================
+  // Google Analytics 4 (GA4) Section Tracking & Deduplication (G-4XXW29PD11)
+  // Tracks virtual page views across the 5 primary sections:
+  // 1. Home, 2. About Me, 3. Experience, 4. Projects, 5. Blogs
+  // ==========================================================================
+  const GA_SECTIONS = {
+    'heroScrollTrack': { title: 'Home | AY0N7', path: '/' },
+    'about-me': { title: 'About Me | AY0N7', path: '/#about-me' },
+    'experience': { title: 'Experience | AY0N7', path: '/#experience' },
+    'selected-projects': { title: 'Projects | AY0N7', path: '/#selected-projects' },
+    'editorial-insights': { title: 'Blogs | AY0N7', path: '/#editorial-insights' }
+  };
+
+  // Prevent duplicate pageview on initial landing (initial page_view sent by gtag config)
+  const initialHash = window.location.hash.replace('#', '');
+  let lastTrackedSection = (initialHash && GA_SECTIONS[initialHash]) ? initialHash : 'heroScrollTrack';
+  let gaScrollDebounceTimer = null;
+
+  function trackSectionView(sectionId) {
+    if (!sectionId || sectionId === lastTrackedSection) return;
+    const meta = GA_SECTIONS[sectionId];
+    if (!meta) return;
+
+    lastTrackedSection = sectionId;
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_title: meta.title,
+        page_location: window.location.origin + meta.path,
+        page_path: meta.path,
+        section_name: meta.title.split(' | ')[0]
+      });
+    }
+  }
   // Active Navigation State Tracking for the 5 Sections
   const navSections = [
     { id: 'heroScrollTrack', elem: document.getElementById('heroScrollTrack') },
@@ -475,6 +509,16 @@ document.addEventListener('DOMContentLoaded', () => {
         link.classList.add('text-secondary');
       }
     });
+
+    // GA4 Virtual Pageview: Track section when user dwells in a new section for 750ms
+    if (currentSectionId !== lastTrackedSection && GA_SECTIONS[currentSectionId]) {
+      clearTimeout(gaScrollDebounceTimer);
+      gaScrollDebounceTimer = setTimeout(() => {
+        trackSectionView(currentSectionId);
+      }, 750);
+    } else if (currentSectionId === lastTrackedSection) {
+      clearTimeout(gaScrollDebounceTimer);
+    }
   }
 
   window.addEventListener('scroll', updateActiveNav, { passive: true });
@@ -483,6 +527,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Back to top / Rewind Button
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
+      clearTimeout(gaScrollDebounceTimer);
+      trackSectionView('heroScrollTrack');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
@@ -502,6 +548,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const navHeight = navbar ? navbar.offsetHeight : 0;
         const targetTop = targetElem.getBoundingClientRect().top + window.scrollY - (targetId === '#heroScrollTrack' ? 0 : navHeight);
+
+        // GA4 Immediate Navigation Tracking
+        const targetSection = targetId.replace('#', '');
+        if (GA_SECTIONS[targetSection]) {
+          clearTimeout(gaScrollDebounceTimer);
+          trackSectionView(targetSection);
+        }
 
         window.scrollTo({
           top: Math.max(0, targetTop),
